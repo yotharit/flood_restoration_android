@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingPrefix"
+>
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ocean"
+            android:scaleType="centerCrop"
+    />
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:weightSum="10"
+    >
+        <Space
+                android:layout_width="match_parent"
+               android:layout_height="0dp"
+                android:layout_weight="1"
+        />
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="8"
+                android:background="@color/white"
+        >
+
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true"
+            >
+                <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/ic_launcher_app"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center"
+                />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="#03396c"
+                        fontPath="fonts/Cloud-Bold.otf"
+                        android:text="flood."
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="30dp"
+                        />
+                <Button
+                        android:id="@+id/continueBtn"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selectable_blue_round"
+                        android:textSize="20sp"
+                        android:textColor="#FFF"
+                        fontPath="fonts/Cloud-Bold.otf"
+                        android:text="กดเพื่อขอคำแนะนำ"
+                />
+
+            </LinearLayout>
+
+            <Button
+                    android:id="@+id/helpBtn"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/help_select"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="12dp"
+            />
+
+        </RelativeLayout>
+
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+        />
+    </LinearLayout>
+
+
+</RelativeLayout>
