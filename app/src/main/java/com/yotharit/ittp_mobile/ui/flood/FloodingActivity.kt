@@ -1,10 +1,13 @@
 package com.yotharit.ittp_mobile.ui.flood
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.yotharit.ittp_mobile.R
 import com.yotharit.ittp_mobile.common.base.BaseMvpActivity
+import com.yotharit.ittp_mobile.ui.result.ResultActivity
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.flooding_layout.*
 
@@ -60,6 +63,41 @@ class FloodingActivity : BaseMvpActivity<FloodingContractor.Presenter>(), Floodi
             //something
         }
 
+        val damages = ArrayList<String>()
+        damages.add("เปียก")
+        damages.add("โดนน้ำเล็กน้อย")
+        damages.add("ชำรุด")
+        damages.add("ปลวก")
+        damages.add("จมน้ำ")
+        damages.add("เชื้อรา")
+        damages.add("ติดขัด")
+        damages.add("เป็นรอย")
+        damages.add("เป็นรู")
+        damages.add("เป็นสนิม")
+
+        val damagesAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, damages)
+
+        infoSpinner.setAdapter(damagesAdapter)
+
+        infoSpinner.setOnSpinnerItemClickListener { i, s ->
+            //something
+        }
+
+        val contractor  = ArrayList<String>()
+        contractor.add("P Build Corporation(Thailand) Co.,Ltd.")
+        contractor.add("M TOP Corporation Co.,Ltd")
+        contractor.add("Conxecute")
+
+        val contractorAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, contractor)
+
+        contractorSpinner.setAdapter(contractorAdapter)
+        contractorSpinner.setOnSpinnerItemClickListener { i, s ->
+            //something
+        }
+
+        continueBtn.setOnClickListener {
+            presenter.requestBundle()
+        }
     }
 
     override fun restoreArgument(extras: Bundle?) {
@@ -79,7 +117,6 @@ class FloodingActivity : BaseMvpActivity<FloodingContractor.Presenter>(), Floodi
 
     override fun onStart() {
         super.onStart()
-
     }
 
     override fun onStop() {
@@ -87,5 +124,32 @@ class FloodingActivity : BaseMvpActivity<FloodingContractor.Presenter>(), Floodi
 
     }
 
+    override fun sendInfo() {
+        val contact = contactEditText.text.toString()
+        val contractor = contractorSpinner.selectedItem
+        val category = categorySpinner.selectedItem
+        val types = typeSpinner.selectedItem
+        val info = infoSpinner.selectedItem
+
+        if (contact != "" && contractor != "" && category != "" && types != "" && info != ""){
+            val bundle = Bundle()
+            bundle.putString("contact",contact)
+            bundle.putString("contractor",contractor)
+            bundle.putString("category",category)
+            bundle.putString("type",types)
+            bundle.putString("info",info)
+            presenter.requestHelp(bundle)
+        }
+        else {
+            Toast.makeText(this,"โปรดใส่ข้อมูลให้ครบ",Toast.LENGTH_LONG).show()
+        }
+
+    }
+
+    override fun getHelp(bundle: Bundle) {
+        val intent = Intent(this,ResultActivity::class.java)
+        intent.putExtra("bundle",bundle)
+        startActivity(intent)
+    }
 
 }

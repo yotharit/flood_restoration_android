@@ -1,19 +1,17 @@
-package com.yotharit.ittp_mobile.ui.flood
+package com.yotharit.ittp_mobile.ui.result
 
-import android.os.Bundle
 import com.yotharit.ittp_mobile.common.base.BaseMvpContractorPresenter
 import com.yotharit.ittp_mobile.common.base.BaseMvpContractorView
 
-class FloodingContractor {
+class ResultContractor {
 
     interface Presenter : BaseMvpContractorPresenter {
-        fun requestBundle()
-        fun requestHelp(bundle: Bundle)
+        fun getSuggestion(category: String , contact: String, contractor: String, type: String, info: String)
     }
 
     interface View : BaseMvpContractorView<Presenter> {
-        fun sendInfo()
-        fun getHelp(bundle: Bundle)
+        fun requestSuggestion()
+        fun showSuggestion(suggestion : String)
     }
 
 }

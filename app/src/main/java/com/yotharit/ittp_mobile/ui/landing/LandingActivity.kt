@@ -67,7 +67,6 @@ class LandingActivity : BaseMvpActivity<LandingContractor.Presenter>(), LandingC
 
     override fun onStart() {
         super.onStart()
-
     }
 
     override fun onStop() {

@@ -1,5 +1,6 @@
 package com.yotharit.ittp_mobile.ui.flood
 
+import android.os.Bundle
 import com.yotharit.ittp_mobile.common.base.BaseMvpPresenter
 import com.yotharit.ittp_mobile.ui.splash.SplashContractor
 import com.yotharit.ittp_mobile.ui.splash.SplashPresenter
@@ -21,6 +22,14 @@ class FloodingPresenter(view : FloodingContractor.View) : BaseMvpPresenter<Flood
         fun createPresenter(view: FloodingContractor.View): FloodingPresenter {
             return FloodingPresenter(view)
         }
+    }
+
+    override fun requestBundle() {
+        view.sendInfo()
+    }
+
+    override fun requestHelp(bundle: Bundle) {
+        view.getHelp(bundle)
     }
 
 }

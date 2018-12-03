@@ -44,9 +44,9 @@
 
             <ImageView
                     android:layout_width="wrap_content"
-                       android:layout_height="80dp"
-                       android:layout_gravity="center"
-                       android:src="@drawable/idea"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/idea"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
             />
@@ -80,51 +80,27 @@
                     fontPath="fonts/Cloud-Light.otf"
                     android:layout_marginBottom="10dp"
             />
-
-            <com.google.android.material.textfield.TextInputLayout
+            <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/infoSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/TextInputLayoutAppearance"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="ประเภทความเสียหาย"
+                    fontPath="fonts/Cloud-Light.otf"
                     android:layout_marginBottom="10dp"
-            >
-
-                <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/infoEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="อธิบายเพิ่มเติม"
-                        android:textColorHint="#03396c"
-                        android:textSize="18sp"
-                        android:textColor="#03396c"
-                        android:padding="10dp"
-                        fontPath="fonts/Cloud-Light.otf"
-                        android:inputType="text"
-                />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            />
+            <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/contractorSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/TextInputLayoutAppearance"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="ผู้รับเหมา"
+                    fontPath="fonts/Cloud-Light.otf"
                     android:layout_marginBottom="10dp"
-            >
+            />
 
-                <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/nameEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="กรอกชื่อ-สกุล"
-                        android:textColorHint="#03396c"
-                        android:textSize="18sp"
-                        android:textColor="#03396c"
-                        android:padding="10dp"
-                        fontPath="fonts/Cloud-Light.otf"
-                        android:inputType="text"
-                        android:maxLines="1"
-                />
 
-            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -149,7 +125,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-
         </LinearLayout>
 
     </ScrollView>
@@ -164,6 +139,6 @@
             android:textSize="22sp"
             android:textColor="#FFF"
             fontPath="fonts/Cloud-Bold.otf"
-            />
+    />
 
 </LinearLayout>
